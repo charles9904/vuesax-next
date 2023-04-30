@@ -1,1 +1,9 @@
-{}
+{
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": true,
+		"source.fixAll": false
+	},
+	"cSpell.words": [
+		"vuesax"
+	]
+}
