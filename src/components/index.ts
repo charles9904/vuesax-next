@@ -1,0 +1,1 @@
+export {default as VsButton} from "./VsButton.vue";
