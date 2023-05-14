@@ -33,11 +33,11 @@ export default defineConfig({
     lib: {
       entry: "src/plugin.ts",
       name: 'vuesax',
-      fileName: format => `vuesax.${format}.js`,
-      formats: ["es", "cjs", "umd"],
+      // fileName: format => `vuesax.${format}.js`,
+      // formats: ["es", "cjs", "umd"],
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', "./example"],
       output: {
         assetFileNames: (chunkInfo) => {
           if (chunkInfo.name === 'plugin.css') return 'vuesax.css';

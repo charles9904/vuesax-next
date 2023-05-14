@@ -1,0 +1,19 @@
+@import './utils/colors';
+@import './utils/vars';
+@import './utils/dark';
+@import './utils/ripple';
+@import './reset';
+
+@import './vs_components';
+
+// body,table,td,tr
+//   backface-visibility: hidden
+
+.vs-remove-transition {
+
+  *,
+  *:after,
+  *:before {
+    transition: all 0s !important;
+  }
+}

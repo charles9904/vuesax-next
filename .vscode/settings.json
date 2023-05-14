@@ -1,9 +1,12 @@
 {
-	"editor.codeActionsOnSave": {
-		"source.organizeImports": true,
-		"source.fixAll": false
-	},
-	"cSpell.words": [
-		"vuesax"
-	]
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": false,
+    "source.fixAll": false,
+    "source.fixAll.eslint": false
+  },
+  "cSpell.words": [
+    "dribbble",
+    "pinterest",
+    "vuesax"
+  ]
 }

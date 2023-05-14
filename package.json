@@ -6,12 +6,12 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/my-lib.umd.cjs",
-  "module": "./dist/my-lib.js",
+  "main": "./dist/vuesax.umd.cjs",
+  "module": "./dist/vuesax.js",
   "exports": {
     ".": {
-      "import": "./dist/my-lib.js",
-      "require": "./dist/my-lib.umd.cjs"
+      "import": "./dist/vuesax.js",
+      "require": "./dist/vuesax.umd.cjs"
     }
   },
   "scripts": {
@@ -27,6 +27,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@babel/core": "^7.21.5",
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "pinia": "^2.0.32",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
