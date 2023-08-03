@@ -9,9 +9,5 @@
     <vs-button gradient primary>gradient button</vs-button>
     <vs-button gradient success>gradient button</vs-button>
     <vs-loading size="35px"></vs-loading>
-    <div style="position: relative; height: 35px; width: 35px;">
-
-    <vs-loading target></vs-loading>
-    </div>
   </div>
 </template>

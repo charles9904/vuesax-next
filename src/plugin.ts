@@ -1,9 +1,10 @@
-import type { App, Plugin } from 'vue'
-import * as components from '@/components/index'
-import '@/styles'
+import type { App, Plugin } from "vue"
+import * as components from "@/components/index"
+
+import "@/assets/styles"
 
 // install function executed by Vue.use()
-const install: Exclude<Plugin['install'], undefined> = (app: App) => {
+const install: Exclude<Plugin["install"], undefined> = (app: App) => {
   Object.entries(components).forEach(([componentName, component]) => {
     app.component(componentName, component)
   })
@@ -14,4 +15,4 @@ export default install
 
 // To allow individual component use, export components
 // each can be registered via Vue.component()
-export * from '@/components/index'
+export * from "@/components/index"

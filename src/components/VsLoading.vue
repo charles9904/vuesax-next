@@ -18,6 +18,7 @@
     </div>
   </transition>
 </template>
+
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
   text: string | null;
@@ -34,7 +35,7 @@ const props = withDefaults(defineProps<{
 }>(), {
   size: "100%",
   text: null,
-  type: 'default',
+  type: "default",
   color: null,
   background: null,
   opacity: null,

@@ -1,8 +1,8 @@
-import vue from '@vitejs/plugin-vue';
-import vueJsx from '@vitejs/plugin-vue-jsx';
-import { fileURLToPath, URL } from 'node:url';
-import typescript2 from 'rollup-plugin-typescript2';
-import { defineConfig } from 'vite';
+import vue from "@vitejs/plugin-vue";
+import vueJsx from "@vitejs/plugin-vue-jsx";
+import { fileURLToPath, URL } from "node:url";
+import typescript2 from "rollup-plugin-typescript2";
+import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
 // https://vitejs.dev/config/
@@ -32,26 +32,26 @@ export default defineConfig({
     cssMinify: true,
     lib: {
       entry: "src/plugin.ts",
-      name: 'vuesax',
+      name: "vuesax",
       // fileName: format => `vuesax.${format}.js`,
       // formats: ["es", "cjs", "umd"],
     },
     rollupOptions: {
-      external: ['vue', "./example"],
+      external: ["vue", "./example"],
       output: {
         assetFileNames: (chunkInfo) => {
-          if (chunkInfo.name === 'plugin.css') return 'vuesax.css';
+          if (chunkInfo.name === "plugin.css") return "vuesax.css";
           return chunkInfo.name;
         },
         globals: {
-          vue: 'Vue',
+          vue: "Vue",
         },
       },
     },
   },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      "@": fileURLToPath(new URL("./src", import.meta.url))
     }
   },
 })

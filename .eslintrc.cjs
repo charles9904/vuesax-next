@@ -1,6 +1,3 @@
-/* eslint-env node */
-require('@rushstack/eslint-patch/modern-module-resolution')
-
 module.exports = {
   root: true,
   env: {
@@ -10,23 +7,23 @@ module.exports = {
   parser: "vue-eslint-parser",
   parserOptions: {
     parser: "@typescript-eslint/parser",
-    ecmaVersion: 'latest'
+    ecmaVersion: "latest"
   },
   extends: [
-    'plugin:vue/vue3-essential',
-    'eslint:recommended',
-    '@vue/eslint-config-typescript',
-    '@vue/eslint-config-prettier/skip-formatting',
-    // "@nuxtjs/eslint-config-typescript"
+    "eslint:recommended",
+    "plugin:vue/vue3-essential",
+    "@vue/eslint-config-typescript",
+    "@vue/eslint-config-prettier/skip-formatting",
   ],
   overrides: [
     {
       files: [
-        'cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}'
+        "cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}"
       ],
       extends: [
-        'plugin:cypress/recommended'
+        "plugin:cypress/recommended"
       ]
     }
   ],
+  rules: { quotes: [2, "double", { avoidEscape: true }] },
 }

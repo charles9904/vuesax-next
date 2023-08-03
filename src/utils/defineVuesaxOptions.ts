@@ -1,4 +1,4 @@
-import { setColor } from './index'
+import { setColor } from "./index"
 
 export interface VuesaxColors {
   [item: string]: any

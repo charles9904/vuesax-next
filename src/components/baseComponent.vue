@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeMount, ref } from 'vue'
-import { getColor } from '@/utils'
+import { onBeforeMount, ref } from "vue"
+import { getColor } from "@/utils"
 
 const color = ref<string>()
 
@@ -29,7 +29,7 @@ const props = withDefaults(defineProps<{
   active?: boolean;
   is: string;
 }>(), {
-  color: 'default',
+  color: "default",
   danger: false,
   success: false,
   warn: false,

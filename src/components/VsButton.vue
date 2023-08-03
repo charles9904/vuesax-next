@@ -50,12 +50,12 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, withDefaults, ref, defineEmits } from 'vue'
-import { useRouter } from 'vue-router'
-import VsComponent from './baseComponent.vue'
-import ripple, { rippleCut, rippleReverse } from '@/utils/ripple'
+import { defineProps, withDefaults, ref, defineEmits } from "vue"
+import { useRouter } from "vue-router"
+import VsComponent from "./baseComponent.vue"
+import ripple, { rippleCut, rippleReverse } from "@/utils/ripple"
 
-const emit = defineEmits(['click'])
+const emit = defineEmits(["click"])
 
 const router = useRouter()
 const props = withDefaults(defineProps<{
@@ -82,7 +82,7 @@ const props = withDefaults(defineProps<{
   href?: string | null;
   blank?: boolean;
 }>(), {
-  ripple: '',
+  ripple: "",
   active: false,
   activeDisabled: false,
   flat: false,
@@ -98,7 +98,7 @@ const props = withDefaults(defineProps<{
   loading: false,
   upload: false,
   block: false,
-  animationType: '',
+  animationType: "",
   animateInactive: false,
   to: null,
   href: null,
@@ -108,17 +108,17 @@ const props = withDefaults(defineProps<{
 const vsButton = ref()
 
 const onMouseDown = (evt: MouseEvent, color: string) => {
-  if (props.ripple === 'reverse') {
+  if (props.ripple === "reverse") {
     rippleReverse(evt)
-  } else if (props.ripple === 'cut') {
+  } else if (props.ripple === "cut") {
     rippleCut(evt)
   } else if (props.flat) {
     ripple(
       evt,
-      (color || 'primary') &&
+      (color || "primary") &&
                 !props.active &&
                 document.activeElement !== vsButton.value
-        ? 'inherit'
+        ? "inherit"
         : null,
       props.flat && !props.active && document.activeElement !== vsButton.value
     )
@@ -135,10 +135,10 @@ const onClick = (evt: EventTarget) => {
   if (props.to) {
     router.push(props.to)
   } else if (props.href) {
-    window.open(props.href, (props.blank && '_blank') || '_self')
-    console.log(props.blank && '_self')
+    window.open(props.href, (props.blank && "_blank") || "_self")
+    console.log(props.blank && "_self")
   }
 
-  emit('click', evt)
+  emit("click", evt)
 }
 </script>

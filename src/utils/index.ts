@@ -3,30 +3,30 @@
 
 const isColor = (color: string) => {
   const vsColors = [
-    'primary', 'secondary', 'success', 'danger', 'warning', 'dark', 'light', 'warn',
+    "primary", "secondary", "success", "danger", "warning", "dark", "light", "warn",
     // social colors
-    'facebook',
-    'twitter',
-    'youtube',
-    'pinterest',
-    'linkedin',
-    'snapchat',
-    'whatsapp',
-    'tumblr',
-    'reddit',
-    'spotify',
-    'amazon',
-    'medium',
-    'vimeo',
-    'skype',
-    'dribbble',
-    'slack',
-    'yahoo',
-    'twitch',
-    'discord',
-    'telegram',
-    'google-plus',
-    'messenger'
+    "facebook",
+    "twitter",
+    "youtube",
+    "pinterest",
+    "linkedin",
+    "snapchat",
+    "whatsapp",
+    "tumblr",
+    "reddit",
+    "spotify",
+    "amazon",
+    "medium",
+    "vimeo",
+    "skype",
+    "dribbble",
+    "slack",
+    "yahoo",
+    "twitch",
+    "discord",
+    "telegram",
+    "google-plus",
+    "messenger"
   ]
   return vsColors.includes(color)
 }
@@ -34,7 +34,7 @@ const isColor = (color: string) => {
 const setVar = (propertyName: string, value: string, el: any) => {
   if (!el) {
     document.documentElement.style.setProperty(`--vs-${propertyName}`, value)
-  } else if (el.nodeName !== '#comment') {
+  } else if (el.nodeName !== "#comment") {
     el.style.setProperty(`--vs-${propertyName}`, value)
   }
 }
@@ -62,37 +62,37 @@ const setColor = (colorName: string, color: string, el: any, addClass?: boolean)
   const isHEX = /^(#)/.test(color)
   let newColor
 
-  if (color === 'dark' && el) {
+  if (color === "dark" && el) {
     if (addClass) {
-      el.classList.add('vs-component-dark')
+      el.classList.add("vs-component-dark")
     }
   }
 
   if (isRGB) {
-    const arrayColor = color.replace(/[rgba()]/g, '').split(',')
+    const arrayColor = color.replace(/[rgba()]/g, "").split(",")
     newColor = `${arrayColor[0]},${arrayColor[1]},${arrayColor[2]}`
     setVar(colorName, newColor, el)
     if (addClass) {
-      el.classList.add('vs-change-color')
+      el.classList.add("vs-change-color")
     }
   } else if (isHEX) {
     const rgb = hexToRgb(color)
     newColor = `${rgb!.r},${rgb!.g},${rgb!.b}`
     setVar(colorName, newColor, el)
     if (addClass) {
-      el.classList.add('vs-change-color')
+      el.classList.add("vs-change-color")
     }
   } else if (isColor(color)) {
     const style = window.getComputedStyle(document.body)
-    newColor = style.getPropertyValue('--vs-' + color)
+    newColor = style.getPropertyValue("--vs-" + color)
     setVar(colorName, newColor, el)
     if (addClass) {
-      el.classList.add('vs-change-color')
+      el.classList.add("vs-change-color")
     }
   } else if (isRGBNumbers) {
     setVar(colorName, color, el)
     if (addClass) {
-      el.classList.add('vs-change-color')
+      el.classList.add("vs-change-color")
     }
   } else {
     //     consolee.warn({
@@ -133,14 +133,14 @@ const getColor = (color: string): string | undefined => {
   let newColor
 
   if (isRGB) {
-    const arrayColor = color.replace(/[rgba()]/g, '').split(',')
+    const arrayColor = color.replace(/[rgba()]/g, "").split(",")
     newColor = `${arrayColor[0]},${arrayColor[1]},${arrayColor[2]}`
   } else if (isHEX) {
     const rgb = hexToRgb(color)
     newColor = `${rgb!.r},${rgb!.g},${rgb!.b}`
   } else if (isColor(color)) {
     const style = window.getComputedStyle(document.body)
-    newColor = style.getPropertyValue('--vs-' + color)
+    newColor = style.getPropertyValue("--vs-" + color)
   } else if (isRGBNumbers) {
     newColor = color
   }
@@ -174,14 +174,14 @@ const setCords = (element: any, parent: any) => {
     style.top = `${y + scrollTop - element.clientHeight - 4}px`
     style.left = `${x}px`
     style.width = `${w}px`
-    element.classList.add('top')
-    parent.classList.add('top')
+    element.classList.add("top")
+    parent.classList.add("top")
   } else {
     style.top = `${y + scrollTop + h - 4}px`
     style.left = `${x}px`
     style.width = `${w}px`
-    element.classList.remove('top')
-    parent.classList.remove('top')
+    element.classList.remove("top")
+    parent.classList.remove("top")
   }
 }
 
@@ -196,19 +196,19 @@ const setCordsPosition = (element: any, parent: any, position: string) => {
   const elTop = element.clientHeight + cords.y + scrollTop
   const rootTop = scrollTop + window.innerHeight
 
-  if (x + w + 10 + element.getBoundingClientRect().width > window.innerWidth && position === 'right') {
-    position = 'left'
-    element.classList.remove('right')
-    element.classList.add('left')
+  if (x + w + 10 + element.getBoundingClientRect().width > window.innerWidth && position === "right") {
+    position = "left"
+    element.classList.remove("right")
+    element.classList.add("left")
   }
 
-  if (x - 10 < element.getBoundingClientRect().width && position === 'left') {
-    position = 'top'
-    element.classList.remove('left')
-    element.classList.add('top')
+  if (x - 10 < element.getBoundingClientRect().width && position === "left") {
+    position = "top"
+    element.classList.remove("left")
+    element.classList.add("top")
   }
 
-  if ((rootTop - elTop) < 30 || position === 'top') {
+  if ((rootTop - elTop) < 30 || position === "top") {
     // console.log('hola mundo')
     style.top = `${y + scrollTop - element.clientHeight - 8}px`
     const left = x + ((w - element.getBoundingClientRect().width) / 2)
@@ -217,15 +217,15 @@ const setCordsPosition = (element: any, parent: any, position: string) => {
       if (left > 0) {
         style.left = `${left}px`
       } else {
-        style.left = '10px'
-        element.classList.add('notArrow')
+        style.left = "10px"
+        element.classList.add("notArrow")
       }
     } else {
-      style.left = 'auto'
-      style.right = '10px'
-      element.classList.add('notArrow')
+      style.left = "auto"
+      style.right = "10px"
+      element.classList.add("notArrow")
     }
-  } else if (position === 'bottom') {
+  } else if (position === "bottom") {
     style.top = `${y + scrollTop + h + 8}px`
     const left = x + ((w - element.getBoundingClientRect().width) / 2)
 
@@ -233,18 +233,18 @@ const setCordsPosition = (element: any, parent: any, position: string) => {
       if (left > 0) {
         style.left = `${left}px`
       } else {
-        style.left = '10px'
-        element.classList.add('notArrow')
+        style.left = "10px"
+        element.classList.add("notArrow")
       }
     } else {
-      style.left = 'auto'
-      style.right = '10px'
-      element.classList.add('notArrow')
+      style.left = "auto"
+      style.right = "10px"
+      element.classList.add("notArrow")
     }
-  } else if (position === 'left') {
+  } else if (position === "left") {
     style.top = `${y + scrollTop + ((h - element.getBoundingClientRect().height) / 2)}px`
     style.left = `${x - element.getBoundingClientRect().width - 8}px`
-  } else if (position === 'right') {
+  } else if (position === "right") {
     style.top = `${y + scrollTop + ((h - element.getBoundingClientRect().height) / 2)}px`
     style.left = `${x + w + 8}px`
   }
